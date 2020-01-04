@@ -68,6 +68,10 @@ def tasks():
         db.session.commit()
     return render_template('tasks.html', title='Tasks', form=form ) #passing the dummy data to the web page - removed posts=task
 
+@app.route("/dashboard")
+def dashboard():
+    return render_template('dashboard.html', title='Dashboard')
+
 @app.route("/about")
 def about():
     return render_template('about.html', title='About')
