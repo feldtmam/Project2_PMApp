@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section">
-        <form method="POST" action="">
+        <form method="POST" action="" enctype="multipart/form-data">
             {{ form.hidden_tag() }} <!-- adding csrf token - used with the secret key-->
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Resources</legend>
@@ -45,6 +45,15 @@
                         {{ form.allocation_percentage(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
+                <div class="form-group">
+                    {{ form.marker_image.label() }}
+                    {{ form.marker_image(class="form-control-file") }}
+                    {% if form.marker_image.errors%}
+                        {% for error in form.marker_image.errors %}
+                            <span class="text-danger">{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
+                </div>    
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}

@@ -20,16 +20,16 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    {{ form.task_id.label(class="form-control-label") }}
-                    {% if form.task_id.errors %}
-                        {{ form.task_id(class="form-control form-control-lg is-invalid") }}
+                    {{ form.parent_id.label(class="form-control-label") }}
+                    {% if form.parent_id.errors %}
+                        {{ form.parent_id(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
-                            {% for error in form.task_id.errors %}
+                            {% for error in form.parent_id.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.task_id(class="form-control form-control-lg") }}
+                        {{ form.parent_id(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
                 <div class="form-group">
