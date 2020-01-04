@@ -28,7 +28,7 @@ class Task(db.Model):
     task_description = db.Column(db.String(200), nullable=False) 
     start_date = db.Column(db.DateTime, nullable=False)
     end_date = db.Column(db.DateTime, nullable=False)
-    marker_image = db.Column(db.String(20), nullable=False, default='default_marker.jpg')
+
 
 
 # dummy data
