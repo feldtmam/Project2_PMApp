@@ -57,7 +57,12 @@
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
-            </div>
-        </form>
+            </div>            
+        </form>      
     </div>
+    <div>
+        {% for resources in resource_names %}
+            <p>{{ resources.fullname }} {{ resources.department }} {{ resources.allocation_percentage }} {{ resources.marker_image }}</p>
+        {% endfor %}
+    </div> 
 {% endblock content %}

@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template, url_for, flash, redirect
 from flask_sqlalchemy import SQLAlchemy
 from forms import ResourcesForm, TaskForm, UpdateResourceForm
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 
@@ -9,8 +11,14 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pmappdb.db'
 
 db = SQLAlchemy(app)
 
+# sqlalchemy identify all the columns in the table that exist
+db.Model.metadata.reflect(db.engine)
+
+
 # to import the db - termnal -> from pmapp import db
 class Resource(db.Model):
+    __tablename__ = 'resource'
+    __table_args__ = { 'extend_existing' : True} # althrough sqlalchemy learned the table, we're telling it we're going to change it
     resource_id = db.Column(db.Integer, primary_key=True)
     fullname = db.Column(db.String(150), nullable=False)
     department = db.Column(db.String(100), nullable=False) 
@@ -20,8 +28,10 @@ class Resource(db.Model):
 
 
 class Task(db.Model):
+    __tablename__ = 'task'
+    __table_args__ = { 'extend_existing' : True}
     task_id = db.Column(db.Integer, primary_key=True)
-    resource_id = db.Column(db.Integer, db.ForeignKey('resource.resource_id'), nullable=False)
+    resource_id = db.Column(db.String, db.ForeignKey('resource.resource_id'), nullable=False)
     project_title = db.Column(db.String(150), nullable=False)
     parent_id = db.Column(db.Float, nullable=False)
     status = db.Column(db.String(15), nullable=False)
@@ -31,9 +41,10 @@ class Task(db.Model):
 
 
 
-# dummy data
-task=[]
+# create a list for the resource names to populate the Querydropdown list on the form
+resource_list=[]
 
+all_resources = Resource.query.all()
 
 @app.route("/")
 @app.route("/home")
@@ -49,6 +60,11 @@ def save_marker_image(form_picture):
 @app.route("/resources", methods=['GET', 'POST'])
 def resources():
     form = ResourcesForm()
+    print('Resource count ', Resource.query.count()) # this will just print out in the terminal
+    # just for testing to print all users to terminal
+    for user in all_resources:
+        #resource_list = 
+        print(user.fullname)   
     if form.validate_on_submit():
         if form.marker_image.data:
             marker_image_file = save_marker_image(form.marker_image.data)
@@ -56,7 +72,7 @@ def resources():
         resource = Resource(fullname=form.fullname.data, department=form.department.data, allocation_percentage=form.allocation_percentage.data, marker_image=marker_image_file)
         db.session.add(resource)
         db.session.commit()
-    return render_template('resources.html', title='Resources', form=form) 
+    return render_template('resources.html', title='Resources', form=form, resource_names=all_resources) #send the form and the list of resources to the template
 
 @app.route("/tasks", methods=['GET', 'POST'])
 def tasks():
