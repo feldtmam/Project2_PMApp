@@ -1,47 +1,13 @@
 import os
-from flask import Flask, render_template, url_for, flash, redirect
-from flask_sqlalchemy import SQLAlchemy
-from forms import ResourcesForm, TaskForm, UpdateResourceForm
-
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pmappdb.db'
-
-db = SQLAlchemy(app)
-
-# sqlalchemy identify all the columns in the table that exist
-db.Model.metadata.reflect(db.engine)
-
-
-# to import the db - termnal -> from pmapp import db
-class Resource(db.Model):
-    __tablename__ = 'resource'
-    __table_args__ = { 'extend_existing' : True} # althrough sqlalchemy learned the table, we're telling it we're going to change it
-    resource_id = db.Column(db.Integer, primary_key=True)
-    fullname = db.Column(db.String(150), nullable=False)
-    department = db.Column(db.String(100), nullable=False) 
-    allocation_percentage = db.Column(db.Integer, nullable=False)
-    marker_image = db.Column(db.String(20), nullable=False, default='default_marker.jpg')
-    tasks = db.relationship('Task', backref='resource', lazy=True)
-
-
-class Task(db.Model):
-    __tablename__ = 'task'
-    __table_args__ = { 'extend_existing' : True}
-    task_id = db.Column(db.Integer, primary_key=True)
-    resource_id = db.Column(db.String, db.ForeignKey('resource.resource_id'), nullable=False)
-    project_title = db.Column(db.String(150), nullable=False)
-    parent_id = db.Column(db.Float, nullable=False)
-    status = db.Column(db.String(15), nullable=False)
-    task_description = db.Column(db.String(200), nullable=False) 
-    start_date = db.Column(db.DateTime, nullable=False)
-    end_date = db.Column(db.DateTime, nullable=False)
+from flask import render_template, url_for, flash, redirect, request, abort
+from pmapp import app, db
+from pmapp.forms import ResourcesForm, TaskForm, UpdateResourceForm
+from pmapp.models import Resource, Task
+import pandas as pd
 
 
 
-# create a list for the resource names to populate the Querydropdown list on the form
+
 resource_list=[]
 
 all_resources = Resource.query.all()
@@ -92,5 +58,13 @@ def dashboard():
 def about():
     return render_template('about.html', title='About')
 
-if __name__ == '__main__': #use this to run the script in debug mode so we don't have to restart the server all the time
-    app.run(debug=True)
+@app.route("/upload", methods=['GET', 'POST'])
+def upload():
+    if request.method == 'POST':
+        print(request.files['file'])
+        f = request.files['file']
+        data_xls = pd.read_excel(f)
+        #uncomment this when file contains all the required columns
+        #data_xls.to_sql(name='task', con=db.engine, index=False)
+        return data_xls.to_html()
+    return render_template('upload.html', title='Upload Excel File')
