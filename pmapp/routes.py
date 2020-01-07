@@ -45,7 +45,8 @@ def tasks():
     form = TaskForm()
     if form.validate_on_submit():
         flash(f'Resource {form.task_description.data} saved!', 'success')
-        task = Task(project_title=form.project_title.data, parent_id=form.parent_id.data, status=form.status.data, task_description=form.task_description.data, start_date=form.start_date.data, end_date=form.end_date.data, resource_id=form.resource.data)
+        #task = Task(project_title=form.project_title.data, parent_id=form.parent_id.data, status=form.status.data, task_description=form.task_description.data, start_date=form.start_date.data, end_date=form.end_date.data, resource_id=form.resource.data)
+        task = Task(project_title=form.project_title.data, parent_id=form.parent_id.data, status=request.form.get('status'), task_description=form.task_description.data, start_date=form.start_date.data, end_date=form.end_date.data, resource_id=request.form.get('resource'))
         db.session.add(task)
         db.session.commit()
     return render_template('tasks.html', title='Tasks', form=form ) #passing the dummy data to the web page - removed posts=task
