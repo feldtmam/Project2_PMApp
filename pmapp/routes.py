@@ -66,6 +66,6 @@ def upload():
         f = request.files['file']
         data_xls = pd.read_excel(f)
         #uncomment this when file contains all the required columns
-        #data_xls.to_sql(name='task', con=db.engine, index=False)
-        return data_xls.to_html()
+        data_xls.to_sql(name='task', con=db.engine, if_exists='append',index=False)
+        #return data_xls.to_html()
     return render_template('upload.html', title='Upload Excel File')
