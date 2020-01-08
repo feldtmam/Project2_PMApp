@@ -12,7 +12,8 @@ class Resource(db.Model):
     allocation_percentage = db.Column(db.Integer, nullable=False)
     marker_image = db.Column(db.String(20), nullable=False, default='default_marker.jpg')
     tasks = db.relationship('Task', backref='resource', lazy=True)
-
+    def __str__(self):
+        return self.fullname
 
 class Task(db.Model):
     __tablename__ = 'task'

@@ -8,8 +8,10 @@ from datetime import date
 #from pmapp import db, Resource
 
 
-# def get_resource_list():
-#     return db.session.query(Resource.fullname).all()
+#  def get_resource_list():
+#      return db.session.query(Resource.fullname).all()
+
+
 
 class ResourcesForm(FlaskForm):
     fullname = StringField('Fullname',
@@ -25,16 +27,16 @@ class TaskForm(FlaskForm):
     project_title = StringField('Project Title',
                         validators=[DataRequired()])
     parent_id = DecimalField('Parent ID', validators=[DataRequired()])
-    status = SelectField('Status', choices=[('Select','Select'),('Not Started','Not Started'), ('Not Started','In Progress'), ('Not Started', 'Deferred'), ('Not Started','Completed')])
+    status = SelectField('Status', choices=[('Select','Select'),('Not Started','Not Started'), ('In Progress','In Progress'), ('Deferred', 'Deferred'), ('Completed','Completed')])
     task_description= StringField('Task Description',
                         validators=[DataRequired()])
     start_date = DateField('Start Date', default=date.today)
     end_date = DateField('End Date', default=date.today)
     # add code to populate dropdown list with full names from db
-    resource = SelectField('Resource', choices=[('Select','Select'),('Bridgette','Bridgette'), ('Jack Stromberg', 'Jack Stromberg'), ('James DeCola','James DeCola'), ('Lauren Chavez','Lauren Chavez'),('Martie Feldtmann','Martie Feldtmann')])                   
+    resource = SelectField('Resource', choices=[('Select','Select'),('Bridgette Sanders','Bridgette Sanders'), ('Jack Stromberg', 'Jack Stromberg'), ('James DeCola','James DeCola'), ('Lauren Chavez','Lauren Chavez'),('Martie Feldtmann','Martie Feldtmann')])                   
     # resource = QuerySelectField(u'Resource',      
-    #                            validators=[DataRequired()],
-    #                            query_factory=get_resource_list)                   
+    #                             validators=[DataRequired()],
+    #                             query_factory=lambda: models.Resource.query)                   
     submit = SubmitField('Save Task')
 
 class UpdateResourceForm(FlaskForm):
