@@ -118,4 +118,9 @@
           </div>
         </article>
     {% endfor %}
+    <div>
+        {% for tasks in all_tasks %}
+            <p>{{ tasks.project_title }} {{ tasks.task_id }} {{ tasks.status }} {{ tasks.start_date }} {{ tasks.end_date }} {{ tasks.resource_id }}</p>
+        {% endfor %}
+    </div> 
 {% endblock content %}

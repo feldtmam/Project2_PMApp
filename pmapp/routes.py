@@ -4,7 +4,7 @@ from pmapp import app, db
 from pmapp.forms import ResourcesForm, TaskForm, UpdateResourceForm
 from pmapp.models import Resource, Task
 import pandas as pd
-from sqlalchemy import func
+#from sqlalchemy import func
 
 
 

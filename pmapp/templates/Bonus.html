@@ -1,0 +1,45 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    
+    <!-- add this script in order to load a large set of 3D model extensions-->
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    
+    <body style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; patternRatio: 0.75'>
+
+        <a-assets>
+            <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
+        </a-assets>
+
+
+
+        <!-- setting up the marker to be identified and the element to be displayed when the marker is identified-->
+        <a-marker preset='custom' type='pattern' url='/images/pattern-00.patt'>
+            <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+        </a-marker>
+        <a-marker preset='custom' type='pattern' url='/images/pattern-01.patt'>
+            <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+        </a-marker>
+        <a-marker preset='custom' type='pattern' url='/images/pattern-02.patt'>
+            <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+        </a-marker>
+        <a-marker preset='custom' type='pattern' url='/images/pattern-03.patt'>
+            <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+        </a-marker>
+        <a-marker preset='custom' type='pattern' url='/images/pattern-04.patt'>
+            <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+        </a-marker>
+        <a-marker preset='custom' type='pattern' url='/images/pattern-05.patt'>
+            <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+        </a-marker>
+        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+        <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>
