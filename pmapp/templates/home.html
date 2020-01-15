@@ -21,38 +21,35 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a> <!-- link tot the Home Page -->
               <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a> <!-- link to the About page -->
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
               <a class="nav-item nav-link" href="{{ url_for('resources') }}">Resources</a>
               <a class="nav-item nav-link" href="{{ url_for('tasks') }}">Tasks</a>
+              <a class="nav-item nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
               <a class="nav-item nav-link" href="{{ url_for('upload') }}">Administration</a>
               <a class="nav-item nav-link" href="{{ url_for('bonus') }}">Bonus</a>
             </div>
-          </div>
+            </div>
         </div>
       </nav>
     </header>
-    <main role="main" class="container">
-      <div class="row">
-        <div class="col-12">
-            
-            {% block content %}
-            <h1>Portfolio Timeline</h1>
-    
-            <!-- HTML -->
-            <div id="chartdiv3"></div>
-
+    <main role="main" class="container-fluid">
+        <div class="row">
+        {% block content %}
+            <div class="col-8">
+                <h1>Portfolio Timeline</h1>
+            </div>    
+        </div>
             <!-- Styles -->
             <style>
             #chartdiv4 {
             width: 100%;
-            height: 600px;
+            height: 1100px;
             }
 
             .demo-theme-dark .demo-background {
@@ -2445,6 +2442,7 @@
         var flagBullet = eventSeries.bullets.push(new am4plugins_bullets.FlagBullet())
         flagBullet.label.propertyFields.text = "letter";
         flagBullet.locationX = 0;
+        flagBullet.locationY = 5;
         flagBullet.tooltipText = "{description}";
 
         chart.scrollbarX = new am4core.Scrollbar();
@@ -2467,24 +2465,20 @@
         </script>
 
         <!-- HTML -->
-        <div id="chartdiv4"></div>
+        </div>
             
             {% endblock %}
-        </div>
-        <div class="col-sm-4">
-          <div class="content-section">
-            <h3>Sidebar</h3>
-            <p class='text-muted'>We can pretty much put anything here, like:
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Tasks due this week</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-              </ul>
-            </p>
-          </div>
-        </div>
-      </div>
-    </main>
+        
+        <div class='row'> 
+            <div class="container-fluid">
+                <div class="content-section">
+                    <div id="chartdiv4"></div>
+                    
+                </div>
+            </div>
+     
+       
+</main>
 
 
     <!-- Optional JavaScript -->

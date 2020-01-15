@@ -21,7 +21,7 @@
     <h1>Project Dashboard</h1>
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top"> <!-- add navigation bar with links to the different pages -->
-        <div class="container">
+         <div class='container'>
           <a class="navbar-brand mr-4" href="/">Project Management</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,19 +33,19 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
               <a class="nav-item nav-link" href="{{ url_for('resources') }}">Resources</a>
               <a class="nav-item nav-link" href="{{ url_for('tasks') }}">Tasks</a>
+              <a class="nav-item nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
               <a class="nav-item nav-link" href="{{ url_for('upload') }}">Administration</a>
               <a class="nav-item nav-link" href="{{ url_for('bonus') }}">Bonus</a>
             </div>
           </div>
-        </div>
+       </div>
       </nav>
     </header>
     <main role="main" class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
@@ -61,11 +61,11 @@
         </div>
       </div>
  
-
+    
     <style>
         #chartdiv {
         width: 100%;
-        height: 600px;
+        height: 800px;
         }
 
         </style>
@@ -263,7 +263,7 @@
         </script>
 
         <!-- HTML -->
-        <div id="chartdiv"></div>
+        
     <!-- Chart code for race track Ends-->
     
     
@@ -274,7 +274,7 @@
 <style>
 #chartdiv2 {
   width: 100%;
-  height:  1000px;
+  height:  800px;
 }
 </style>
 
@@ -2631,7 +2631,7 @@
     </script>
 
 <!--HTML-->
-<div id="chartdiv2"></div>
+
 
 
 <!--Partitioned bar-->
@@ -2679,11 +2679,14 @@ chart.data = [{
         ]}];
 
 
+
 var title = chart.titles.create();
         title.text = "Total Overdue Tasks";
-        title.fontsize = 35;
+        title.fontsize = 60;
         title.marginBottom = 30;
         title.fontWeight = 600;
+
+
 
 chart.colors.step = 3;
 chart.fontSize = 11;
@@ -2715,43 +2718,12 @@ level2.labels.template.text = "{value.value}";
 
 chart.legend = new am4charts.Legend();
 
-//var level0SeriesTemplate = new am4plugins_sunburst.SunburstSeries();
-//level0SeriesTemplate.hiddenInLegend = false;
-//chart.seriesTemplates.setKey("0", level0SeriesTemplate)
-//level0.labels.template.text = "{category}: {value.value}"; 
-
-// this makes labels to be hidden if they don't fit
-//level0SeriesTemplate.labels.template.truncate = true;
-//level0SeriesTemplate.labels.template.hideOversized = true;
-
-//level0SeriesTemplate.labels.template.adapter.add("rotation", function(rotation, target) {
-//  target.maxWidth = target.dataItem.slice.radius - target.dataItem.slice.innerRadius - 5;
-//  target.maxHeight = Math.abs(target.dataItem.slice.arc * (target.dataItem.slice.innerRadius + target.dataItem.slice.radius) / 2 * am4core.math.RADIANS);
-
-//  return rotation;
-//})
-
-
-
-//var level1SeriesTemplate = level0SeriesTemplate.clone();
-//chart.seriesTemplates.setKey("1", level1SeriesTemplate)
-//level1SeriesTemplate.fillOpacity = 0.5;
-//level1SeriesTemplate.hiddenInLegend = true;
-//level1.labels.template.text = "{resource}: {value.value}"; 
-
-
-//var level2SeriesTemplate = level0SeriesTemplate.clone();
-//chart.seriesTemplates.setKey("2", level2SeriesTemplate)
-//level2SeriesTemplate.fillOpacity = 0.5;
-//level2SeriesTemplate.hiddenInLegend = true;
-//level2.labels.template.text = "{resource}: {value.value}"; 
-//chart.legend = new am4charts.Legend();
 
 }); // end am4core.ready()
 </script>
 
 <!-- HTML -->
-<div id="chartdiv3"></div>
+
 
 <!-- Styles -->
 <style>
@@ -5049,6 +5021,12 @@ chart.data = [
     }
 ];
 
+var title = chart.titles.create();
+        title.text = "Project Timeline";
+        title.fontsize = 30;
+        title.marginBottom = 30;
+        title.fontWeight = 600;
+
 chart.dateFormatter.dateFormat = "yyyy-MM-dd";
 chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
 chart.fontSize = 11;
@@ -5128,7 +5106,7 @@ imageBullet2.image.propertyFields.href = "image2";
 
 var eventSeries = chart.series.push(new am4plugins_timeline.CurveLineSeries());
 eventSeries.dataFields.dateX = "eventDate";
-eventSeries.dataFields.categoryY = "project_title";
+eventSeries.dataFields.categoryY = "description";
 eventSeries.data = [
     { category: "", eventDate: "2020-01-31", letter: "A", description: "Milestone1: Requirements Definition Phase" },
     { category: "", eventDate: "2020-02-29", letter: "B", description: "Milestone2: Logical Design" },
@@ -5142,7 +5120,7 @@ eventSeries.strokeOpacity = 0;
 var flagBullet = eventSeries.bullets.push(new am4plugins_bullets.FlagBullet())
 flagBullet.label.propertyFields.text = "letter";
 flagBullet.locationX = 0;
-flagBullet.tooltipText = "{task_description}";
+flagBullet.tooltipText = "{description}";
 
 chart.scrollbarX = new am4core.Scrollbar();
 chart.scrollbarX.align = "center"
@@ -5164,4 +5142,28 @@ categoryAxis.cursorTooltipEnabled = false;
 </script>
 
 <!-- HTML -->
-<div id="chartdiv4"></div>
+<div class = "row">
+   <div class = "col-sm-6 col-md-3">
+        <div class = "thumbnail">
+        <img src = "./images/task_timeline_by_resource_small.png" alt = "Generic placeholder thumbnail">
+         <img src = "./images/tasks_by_resource_small.png" alt = "Generic placeholder thumbnail">
+        </div>
+   </div>
+
+<div class="container-fluid">
+<div class="jumbotron">
+    <div class="content-section">
+        <div class='row'> 
+        <div class="col-lg" id="chartdiv2"></div>
+        <div class="col-lg" id="chartdiv"></div>        
+    </div>
+    </div>
+    
+    <div class="content-section">
+        <div class='row'>
+            <div class="col-md" id="chartdiv3"></div>    
+            <div class="col-md" id="chartdiv4"></div>
+        </div>    
+    </div>
+</div> 
+</div>   
