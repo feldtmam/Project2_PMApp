@@ -118,4 +118,40 @@
           </div>
         </article>
     {% endfor %}
+    </div>
+    <div class="jumbotron">
+    <div class="content-section">
+        <div class='row'> 
+        <div class="col-xl">
+               
+        <table>
+        <thead>
+        <tr>
+            <th scope="col">Project Title</th>
+            <th scope="col">Task Description</th>
+            <th scope="col">Status</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Resource</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for tasks in all_tasks %}
+            
+                <tr>
+                    <td>{{ tasks.project_title }}</td>
+                    <td>{{ tasks.task_description }}</td>
+                    <td>{{ tasks.status }}</td>
+                    <td>{{ tasks.start_date }}</td>
+                    <td>{{ tasks.end_date }}</td>
+                    <td>{{ tasks.resource_id }}</td>
+                </tr>
+           <!-- <p>{{ tasks.project_title }} {{ tasks.task_id }} {{ tasks.status }} {{ tasks.start_date }} {{ tasks.end_date }} {{ tasks.resource_id }}</p> -->
+        {% endfor %}
+         </tbody>
+         </table>
+    </div>
+    </div> 
+    </div>
+    </div>
 {% endblock content %}

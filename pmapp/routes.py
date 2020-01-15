@@ -4,13 +4,62 @@ from pmapp import app, db
 from pmapp.forms import ResourcesForm, TaskForm, UpdateResourceForm
 from pmapp.models import Resource, Task
 import pandas as pd
+import json
+#from bson import json_util
+#from bson.json_util import dumps
+
+#from sqlalchemy import func
 
 
 
 
 resource_list=[]
 
+#get the data from the db tables
 all_resources = Resource.query.all()
+all_tasks = Task.query.all()
+all_tasks_df = pd.DataFrame()
+all_resources_df = pd.DataFrame()
+
+#add all tasks to dataframe
+for task in all_tasks:
+    all_tasks_df = all_tasks_df.append({'project_title': task.project_title, 'resource' : task.resource_id, 'task_description' : task.task_description, 'start_date': task.start_date, 'end_date': task.end_date, 'status': task.status}, ignore_index=True)
+# add resources to dataframe
+for resource in all_resources:
+    all_resources_df = all_resources_df.append({'resource': resource.fullname, 'department' : resource.department, 'allocation_percentage' : resource.allocation_percentage, 'marker': resource.marker_image}, ignore_index=True)
+#group the data for the graphs
+#all_tasks_df['start_date'] = all_tasks_df['start_date'].dt.strftime('%m-%d-%Y')
+#all_tasks_df['end_date'] = all_tasks_df['end_date'].dt.strftime('%m-%d-%Y')
+
+#add startweek and endweek
+all_tasks_df['start_week'] = all_tasks_df['start_date'].dt.week
+all_tasks_df['end_week'] = all_tasks_df['end_date'].dt.week
+
+
+all_tasks_df.astype(str).to_json('pmapp/all_tasks.json', orient='records', date_format = 'iso')
+all_tasks_df_grouped = all_tasks_df.groupby(['project_title', 'resource']).task_description.agg('count').to_frame('total_tasks').reset_index()
+all_tasks_df_grouped_no_proj = all_tasks_df.groupby(['resource']).task_description.agg('count').to_frame('total_tasks').reset_index()
+all_tasks_df_grouped_proj_resource_status = all_tasks_df.groupby(['project_title', 'resource', 'status']).task_description.agg('count').to_frame('total_status').reset_index()
+all_tasks_df_stacked_status_resource = all_tasks_df.groupby(['resource', 'status']).task_description.agg('count').to_frame('total_status').reset_index()
+all_tasks_df_stacked_status_project = all_tasks_df.groupby(['project_title', 'status']).task_description.agg('count').to_frame('total_status').reset_index()
+print(all_tasks_df_grouped)
+all_tasks_df.to_json('pmapp/tasks.json', orient='records')
+all_tasks_df_grouped.to_json('pmapp/tasks_grouped.json', orient='records')
+all_tasks_df_grouped.to_json('pmapp/tasks_grouped_resources_only.json', orient='records')
+all_tasks_df_grouped.to_csv('pmapp/tasks_grouped.csv', index = False, encoding='utf-8')
+all_tasks_df_grouped_proj_resource_status.to_json('pmapp/all_tasks_df_grouped_proj_resource_status.json', orient='records')
+all_tasks_df_stacked_status_resource.to_json('pmapp/all_tasks_df_stacked_status_resource.json', orient='records')
+all_tasks_df_stacked_status_project.to_json('pmapp/all_tasks_df_stacked_status_project.json', orient='records')
+
+# combine data
+full_combined_df = pd.merge(left=all_tasks_df, right=all_resources_df, on=['resource'], how='left').reset_index()
+
+
+# use current date to identify tasks overdue by project and resource
+today = pd.datetime.today()
+overdue_tasks_df = all_tasks_df[(all_tasks_df['end_date'] < today)]
+overdue_tasks_df_grouped = overdue_tasks_df.groupby(['project_title', 'resource']).task_description.agg('count').to_frame('number_overdue_tasks').reset_index()
+overdue_tasks_df_grouped.to_json('pmapp/overdue_tasks_project_resource.json', orient='records')
 
 @app.route("/")
 @app.route("/home")
@@ -95,12 +144,16 @@ def tasks(status='Not Started'):
         task = Task(project_title=form.project_title.data, parent_id=form.parent_id.data, status=request.form.get('status'), task_description=form.task_description.data, start_date=form.start_date.data, end_date=form.end_date.data, resource_id=request.form.get('resource'))
         db.session.add(task)
         db.session.commit()
-    return render_template('tasks.html', title='Tasks', form=form )
+    return render_template('tasks.html', title='Tasks', form=form , all_tasks = all_tasks)
 
 
 
 @app.route("/dashboard")
 def dashboard():
+    # chart data - amcharts
+    #dataSource = 'tasks.json'
+    json_projects = all_tasks_df.to_json(orient='records')
+    #return json_projects
     return render_template('dashboard.html', title='Dashboard')
 
 @app.route("/about")
@@ -115,3 +168,7 @@ def upload():
         data_xls = pd.read_excel(f)
         data_xls.to_sql(name='task', con=db.engine, if_exists='append',index=False)
     return render_template('upload.html', title='Upload Excel File')
+
+@app.route("/bonus")
+def bonus():
+    return render_template('bonus.html', title='Bonus')

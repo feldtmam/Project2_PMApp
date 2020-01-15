@@ -1,0 +1,88 @@
+{% extends "layout.html" %} 
+{% block content %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+
+    
+    <!-- add this script in order to load a large set of 3D model extensions-->
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    
+    <body style='margin : 0px; overflow: hidden;'>
+        <!--Add event listener for markerFound and markerLost-->
+        
+        <!--<script>
+            AFRAME.registerComponent('registerevents', {
+                init: function() {
+                    var marker = this.el;
+
+                    marker.setAttribute('emitevents', 'true');
+                    marker.addEventListener('markerFound', function(){
+                        var markerId = marker.id;
+                        console.log('markerFound', markerId);
+                         //TODO add code here
+                        
+                        
+
+                    });
+                    marker.addEventListener('markerLost', function(){
+                        var markerId = marker.id;
+                        console.log('markerLost', markerId);
+                        //TODO add code here
+                    });
+                }
+            });></script>-->
+        
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; patternRatio: 0.75'>
+
+            <a-assets>
+                <a-asset-item id="test_obj" src="owl.jpg"></a-asset-item>
+                <a-asset-item id="marker_obj1" src="../images/marker1.jpg"></a-asset-item>
+                <a-asset-item id="marker_obj2" src="../images/marker2.jpg"></a-asset-item>
+            </a-assets>
+
+
+
+            <!-- setting up the marker to be identified and the element to be displayed when the marker is identified-->
+            <a-marker id="test_marker" type='pattern' url='/images/pattern-00.patt'>
+                <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+                <a-entity id="test" obj-model="obj: #test-obj;" material="color: green" rotation="0 180 0" position="0 0 0.5" scale="0.15 0.15 0.15"></a-entity>
+            </a-marker>
+            <a-marker id="marker1" type='pattern' url='/images/pattern-01.patt'>
+                <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+                <a-entity id="mk1" obj-model="obj: #marker-obj1;" material="color: green" rotation="0 180 0" position="0 0 0.5" scale="0.15 0.15 0.15"></a-entity>
+            </a-marker>
+            <a-marker id="marker2" type='pattern' url='/images/pattern-02.patt'>
+                <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+                <a-entity id="mk2" obj-model="obj: #marker-obj2;" material="color: green" rotation="0 180 0" position="0 0 0.5" scale="0.15 0.15 0.15"></a-entity>
+            </a-marker>
+            <a-marker id="marker3" type='pattern' url='/images/pattern-03.patt'>
+                <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+                <a-entity id="mk3" obj-model="obj: #marker-obj3;" material="color: green" rotation="0 180 0" position="0 0 0.5" scale="0.15 0.15 0.15"></a-entity>
+            </a-marker>
+            <a-marker id="marker4" type='pattern' url='/images/pattern-04.patt'>
+                <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+                <a-entity id="mk4" obj-model="obj: #marker-obj4;" material="color: green" rotation="0 180 0" position="0 0 0.5" scale="0.15 0.15 0.15"></a-entity>
+            </a-marker>
+            <a-marker id="marker5" type='pattern' url='/images/pattern-05.patt'>
+                <a-plane position='0 1 0' radius='0.5' material='color: grey'></a-plane>
+                <a-entity id="mk5" obj-model="obj: #marker-obj5;" material="color: green" rotation="0 180 0" position="0 0 0.5" scale="0.15 0.15 0.15"></a-entity>
+            </a-marker>
+            <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+            <a-entity camera></a-entity>
+
+            <a-entity text="value: Resource Information; color: #BBB"
+                position="-0.9 0.2 -3"
+                scale="1.5 1.5 1.5"
+                geometry="primitive: plane; height: auto; width: auto"
+                material="color: blue"></a-entity>
+
+        </a-scene>
+    </body>
+</html>
+{% endblock content %}

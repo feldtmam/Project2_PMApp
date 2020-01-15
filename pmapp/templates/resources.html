@@ -61,8 +61,37 @@
         </form>      
     </div>
     <div>
+    </div>
+    </div>
+    <div class="jumbotron">
+    <div class="content-section">
+        <div class='row'> 
+        <div class="col-xl">
+               
+        <table>
+        <thead>
+        <tr>
+            <th scope="col">Resource Name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Allocation %</th>
+            <th scope="col">Marker Image</th>
+        </tr>
+        </thead>
+         <tbody>
+       
         {% for resources in resource_names %}
-            <p>{{ resources.fullname }} {{ resources.department }} {{ resources.allocation_percentage }} {{ resources.marker_image }}</p>
+            <tr>
+                    <td>{{ resources.fullname}}</td>
+                    <td>{{ resources.department }}</td>
+                    <td>{{ resources.allocation_percentage }}</td>
+                    <td>{{ resources.marker_image }}</td>
+            </tr>
+            <!--<p>{{ resources.fullname }} {{ resources.department }} {{ resources.allocation_percentage }} {{ resources.marker_image }}</p>-->
         {% endfor %}
+        </tbody>
+        </table>
     </div> 
+    </div>
+    </div>
+  
 {% endblock content %}

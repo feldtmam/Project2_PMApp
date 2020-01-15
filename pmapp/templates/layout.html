@@ -9,17 +9,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"> <!-- flask function url_for provide the correct link to the route -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
 
-    {% if project_title %}
-        <title>PMA - {{ project_title }}</title> <!-- if title is provided as variable, it will be added to the title (tab) name of the page -->
-    {% else %}
-        <title>Project Management</title> <!-- default tab name for the page if no title is provided as variable -->
-    {% endif %}
-</head>
-<body>
-    <header class="site-header">
+<header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top"> <!-- add navigation bar with links to the different pages -->
-        <div class="container">
+        
           <a class="navbar-brand mr-4" href="/">Project Management</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,15 +25,25 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
               <a class="nav-item nav-link" href="{{ url_for('resources') }}">Resources</a>
               <a class="nav-item nav-link" href="{{ url_for('tasks') }}">Tasks</a>
-              <a class="nav-item nav-link" href="{{ url_for('upload') }}">Upload</a>
+              <a class="nav-item nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+              <a class="nav-item nav-link" href="{{ url_for('upload') }}">Administration</a>
+              <a class="nav-item nav-link" href="{{ url_for('bonus') }}">Bonus</a>
             </div>
           </div>
-        </div>
+        
       </nav>
     </header>
+
+    {% if project_title %}
+        <title>PMA - {{ project_title }}</title> <!-- if title is provided as variable, it will be added to the title (tab) name of the page -->
+    {% else %}
+        <title>Project Management</title> <!-- default tab name for the page if no title is provided as variable -->
+    {% endif %}
+</head>
+<body>
+    
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
@@ -54,18 +58,7 @@
             {% endwith %}
             {% block content %}{% endblock %}
         </div>
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>We can pretty much put anything here, like:
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Tasks due this week</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-              </ul>
-            </p>
-          </div>
-        </div>
+        
       </div>
     </main>
 
@@ -75,5 +68,12 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
+    <script src="https://www.amcharts.com/lib/4/lang/de_DE.js"></script>
+    <script src="https://www.amcharts.com/lib/4/plugins/timeline.js"></script>
+    <script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 </body>
 </html>
