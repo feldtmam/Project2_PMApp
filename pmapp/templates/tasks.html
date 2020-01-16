@@ -119,6 +119,2301 @@
         </article>
     {% endfor %}
     </div>
+    <div id="example-table"></div>
+    <script>
+        var data = [
+            {
+                "end_date": "2020-01-04 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-03 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Identify topic for project and create initial proposal",
+                "task_id": 1
+            },
+            {
+                "end_date": "2020-01-04 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-03 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Discovery to align possible functionality to project requirements",
+                "task_id": 2
+            },
+            {
+                "end_date": "2020-01-04 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-04 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Present Project proposal to team, agree on scope and assign tasks",
+                "task_id": 3
+            },
+            {
+                "end_date": "2020-01-08 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-03 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Create starter code for Flask application - include Flask, HTML and CSS",
+                "task_id": 4
+            },
+            {
+                "end_date": "2020-01-05 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-03 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Create SQLite db with tables for Resources and Tasks",
+                "task_id": 5
+            },
+            {
+                "end_date": "2020-01-05 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-04 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Integrate Flask input forms with the db",
+                "task_id": 6
+            },
+            {
+                "end_date": "2020-01-08 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-05 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Identify/create initial dataset",
+                "task_id": 7
+            },
+            {
+                "end_date": "2020-01-08 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-05 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Cleanup and prepare demo dataset file for upload to the db",
+                "task_id": 8
+            },
+            {
+                "end_date": "2020-01-08 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-08 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Create file upload functionality on website",
+                "task_id": 9
+            },
+            {
+                "end_date": "2020-01-05 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-05 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Reorganize modules into package",
+                "task_id": 10
+            },
+            {
+                "end_date": "2020-01-08 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-01-06 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Add content to the About page to provide information on the team members and project",
+                "task_id": 12
+            },
+            {
+                "end_date": "2020-01-11 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "James DeCola",
+                "start_date": "2020-01-06 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Create interactive Gantt chart on the Home Page to reflect data from the db on date and/or project selection",
+                "task_id": 13
+            },
+            {
+                "end_date": "2020-01-11 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-01-06 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Utilize the db to create an interactive Project Dashboard on the Dashboard page - phase 1",
+                "task_id": 14
+            },
+            {
+                "end_date": "2020-01-13 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-01-11 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Implement additional graphs to add to the Dashboard - phase 2",
+                "task_id": 15
+            },
+            {
+                "end_date": "2020-01-13 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-01-11 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Complete the Dashboard by implementing and finalizing graphs - phase 3",
+                "task_id": 16
+            },
+            {
+                "end_date": "2020-01-08 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-06 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Enhance the Resources input page to allow for updates and deleting of resources",
+                "task_id": 17
+            },
+            {
+                "end_date": "2020-01-08 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-06 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Enhance the Task input page to allow for updates and deleting of tasks",
+                "task_id": 18
+            },
+            {
+                "end_date": "2020-01-08 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-06 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Enhance the Task input page to read from the Resources table and populate the dropdown list",
+                "task_id": 19
+            },
+            {
+                "end_date": "2020-01-13 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-01-06 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Read from the db and create a table of all resource data on the Resources page",
+                "task_id": 20
+            },
+            {
+                "end_date": "2020-01-13 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-01-06 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Read from the db and create a table of all task data on the Tasks page",
+                "task_id": 21
+            },
+            {
+                "end_date": "2020-01-13 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-08 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Create basic AR functionality to display summary data for resources based on their identified marker",
+                "task_id": 22
+            },
+            {
+                "end_date": "2020-01-13 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project 2 - Data Analytics Bootcamp",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-01-13 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Update presentation",
+                "task_id": 23
+            },
+            {
+                "end_date": "2020-01-31 00:00:00.000000",
+                "parent_id": 1,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-01 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Requirements Definition (Phase 1)",
+                "task_id": 31
+            },
+            {
+                "end_date": "2020-01-10 00:00:00.000000",
+                "parent_id": 1.01,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-01 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Requirements funding",
+                "task_id": 32
+            },
+            {
+                "end_date": "2020-01-03 00:00:00.000000",
+                "parent_id": 1.011,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-01-03 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Review project request",
+                "task_id": 33
+            },
+            {
+                "end_date": "2020-01-10 00:00:00.000000",
+                "parent_id": 1.012,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-01-01 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Establish preliminary justification",
+                "task_id": 34
+            },
+            {
+                "end_date": "2020-01-10 00:00:00.000000",
+                "parent_id": 1.013,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-01-04 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Fund Phase 1",
+                "task_id": 35
+            },
+            {
+                "end_date": "2020-01-10 00:00:00.000000",
+                "parent_id": 1.014,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-08 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Prioritize project",
+                "task_id": 36
+            },
+            {
+                "end_date": "2020-01-10 00:00:00.000000",
+                "parent_id": 1.015,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-01-02 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Establish project team",
+                "task_id": 37
+            },
+            {
+                "end_date": "2020-01-20 00:00:00.000000",
+                "parent_id": 1.02,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-01-01 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Define problem or opportunity",
+                "task_id": 38
+            },
+            {
+                "end_date": "2020-01-18 00:00:00.000000",
+                "parent_id": 1.021,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-05 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Interview users",
+                "task_id": 39
+            },
+            {
+                "end_date": "2020-01-15 00:00:00.000000",
+                "parent_id": 1.022,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-01-05 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Examine operation and reports",
+                "task_id": 40
+            },
+            {
+                "end_date": "2020-01-19 00:00:00.000000",
+                "parent_id": 1.023,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-05 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Document problem from symptoms",
+                "task_id": 41
+            },
+            {
+                "end_date": "2020-01-20 00:00:00.000000",
+                "parent_id": 1.024,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-01-05 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Define project scope",
+                "task_id": 42
+            },
+            {
+                "end_date": "2020-01-20 00:00:00.000000",
+                "parent_id": 1.03,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-01-05 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Analyze existing system",
+                "task_id": 43
+            },
+            {
+                "end_date": "2020-01-20 00:00:00.000000",
+                "parent_id": 1.031,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-01-05 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Assemble documentation on existing system",
+                "task_id": 44
+            },
+            {
+                "end_date": "2020-01-25 00:00:00.000000",
+                "parent_id": 1.032,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-10 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Identify data flows",
+                "task_id": 45
+            },
+            {
+                "end_date": "2020-01-25 00:00:00.000000",
+                "parent_id": 1.033,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-15 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify external interfaces",
+                "task_id": 46
+            },
+            {
+                "end_date": "2020-01-25 00:00:00.000000",
+                "parent_id": 1.034,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-15 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Identify problem domain",
+                "task_id": 47
+            },
+            {
+                "end_date": "2020-01-25 00:00:00.000000",
+                "parent_id": 1.04,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-01-05 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Document system requirements",
+                "task_id": 48
+            },
+            {
+                "end_date": "2020-01-10 00:00:00.000000",
+                "parent_id": 1.041,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-01-05 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Document output information requirements",
+                "task_id": 49
+            },
+            {
+                "end_date": "2020-01-12 00:00:00.000000",
+                "parent_id": 1.042,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-01-08 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Document interface constraints",
+                "task_id": 50
+            },
+            {
+                "end_date": "2020-01-12 00:00:00.000000",
+                "parent_id": 1.043,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-01-12 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Document audit trail constraints",
+                "task_id": 51
+            },
+            {
+                "end_date": "2020-01-08 00:00:00.000000",
+                "parent_id": 1.044,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-01-08 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Document turnaround or response time",
+                "task_id": 52
+            },
+            {
+                "end_date": "2020-01-16 00:00:00.000000",
+                "parent_id": 1.045,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-01-13 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Document security constraints",
+                "task_id": 53
+            },
+            {
+                "end_date": "2020-01-25 00:00:00.000000",
+                "parent_id": 1.046,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-17 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Document physical environment constraints or requirements",
+                "task_id": 54
+            },
+            {
+                "end_date": "2020-01-28 00:00:00.000000",
+                "parent_id": 1.05,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-15 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Validate against systems architecture",
+                "task_id": 55
+            },
+            {
+                "end_date": "2020-01-20 00:00:00.000000",
+                "parent_id": 1.051,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-01-15 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Compare requirements with systems architecture",
+                "task_id": 56
+            },
+            {
+                "end_date": "2020-01-20 00:00:00.000000",
+                "parent_id": 1.052,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-01-15 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify possible inconsistencies",
+                "task_id": 57
+            },
+            {
+                "end_date": "2020-01-22 00:00:00.000000",
+                "parent_id": 1.053,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-21 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Identify conflicting and concurrent development",
+                "task_id": 58
+            },
+            {
+                "end_date": "2020-01-24 00:00:00.000000",
+                "parent_id": 1.054,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-01-21 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify recommended changes to systems architecture",
+                "task_id": 59
+            },
+            {
+                "end_date": "2020-01-28 00:00:00.000000",
+                "parent_id": 1.055,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-01-24 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify recommended changes to strategic implementation plan",
+                "task_id": 60
+            },
+            {
+                "end_date": "2020-01-31 00:00:00.000000",
+                "parent_id": 1.06,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-01-25 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Management review / Phase 2 funding",
+                "task_id": 61
+            },
+            {
+                "end_date": "2020-01-18 00:00:00.000000",
+                "parent_id": 1.061,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-01-18 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Plan next phase",
+                "task_id": 62
+            },
+            {
+                "end_date": "2020-01-19 00:00:00.000000",
+                "parent_id": 1.062,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-01-19 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Reevaluate development costs",
+                "task_id": 63
+            },
+            {
+                "end_date": "2020-01-20 00:00:00.000000",
+                "parent_id": 1.063,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-20 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Reevaluate justification",
+                "task_id": 64
+            },
+            {
+                "end_date": "2020-01-28 00:00:00.000000",
+                "parent_id": 1.064,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-01-21 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Obtain user requirements consensus",
+                "task_id": 65
+            },
+            {
+                "end_date": "2020-01-29 00:00:00.000000",
+                "parent_id": 1.065,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-01-25 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Obtain technical consensus",
+                "task_id": 66
+            },
+            {
+                "end_date": "2020-02-29 00:00:00.000000",
+                "parent_id": 2,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-02-01 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Logical Design (Phase 2)",
+                "task_id": 67
+            },
+            {
+                "end_date": "2020-02-15 00:00:00.000000",
+                "parent_id": 2.01,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-02-01 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Identify detailed data requirements",
+                "task_id": 68
+            },
+            {
+                "end_date": "2020-02-10 00:00:00.000000",
+                "parent_id": 2.011,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-02-05 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify output requirements",
+                "task_id": 69
+            },
+            {
+                "end_date": "2020-02-10 00:00:00.000000",
+                "parent_id": 2.012,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-02-05 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Decompose output data",
+                "task_id": 70
+            },
+            {
+                "end_date": "2020-02-15 00:00:00.000000",
+                "parent_id": 2.013,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-02-09 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify input requirements",
+                "task_id": 71
+            },
+            {
+                "end_date": "2020-02-15 00:00:00.000000",
+                "parent_id": 2.0140000000000002,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-02-09 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Identify sources of input",
+                "task_id": 72
+            },
+            {
+                "end_date": "2020-02-20 00:00:00.000000",
+                "parent_id": 2.02,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-02-15 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Develop prototype or user system view",
+                "task_id": 73
+            },
+            {
+                "end_date": "2020-02-20 00:00:00.000000",
+                "parent_id": 2.021,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-02-10 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Design interactive screens",
+                "task_id": 74
+            },
+            {
+                "end_date": "2020-02-18 00:00:00.000000",
+                "parent_id": 2.022,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-02-11 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Design reports",
+                "task_id": 75
+            },
+            {
+                "end_date": "2020-02-20 00:00:00.000000",
+                "parent_id": 2.03,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-02-10 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Design database",
+                "task_id": 76
+            },
+            {
+                "end_date": "2020-02-20 00:00:00.000000",
+                "parent_id": 2.031,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-02-10 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Define logical data relations",
+                "task_id": 77
+            },
+            {
+                "end_date": "2020-02-25 00:00:00.000000",
+                "parent_id": 2.032,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-18 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Design data structure",
+                "task_id": 78
+            },
+            {
+                "end_date": "2020-02-25 00:00:00.000000",
+                "parent_id": 2.033,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-02-20 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Validate database design",
+                "task_id": 79
+            },
+            {
+                "end_date": "2020-02-15 00:00:00.000000",
+                "parent_id": 2.04,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-02-02 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Structure processes",
+                "task_id": 80
+            },
+            {
+                "end_date": "2020-02-20 00:00:00.000000",
+                "parent_id": 2.041,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-02-18 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Isolate highly related data",
+                "task_id": 81
+            },
+            {
+                "end_date": "2020-02-25 00:00:00.000000",
+                "parent_id": 2.042,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-15 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Reconstruct processes to correspond with output requirements",
+                "task_id": 82
+            },
+            {
+                "end_date": "2020-02-20 00:00:00.000000",
+                "parent_id": 2.043,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-02-15 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Identify reusable process structures",
+                "task_id": 83
+            },
+            {
+                "end_date": "2020-02-26 00:00:00.000000",
+                "parent_id": 2.05,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-02-18 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Design Interfaces",
+                "task_id": 84
+            },
+            {
+                "end_date": "2020-02-21 00:00:00.000000",
+                "parent_id": 2.051,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-15 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Design external data interfaces",
+                "task_id": 85
+            },
+            {
+                "end_date": "2020-02-22 00:00:00.000000",
+                "parent_id": 2.052,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-16 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Design human interfaces",
+                "task_id": 86
+            },
+            {
+                "end_date": "2020-02-26 00:00:00.000000",
+                "parent_id": 2.053,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-02-15 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Design intersystem interfaces",
+                "task_id": 87
+            },
+            {
+                "end_date": "2020-02-25 00:00:00.000000",
+                "parent_id": 2.06,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-02-10 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Specify all inputs and outputs",
+                "task_id": 88
+            },
+            {
+                "end_date": "2020-02-21 00:00:00.000000",
+                "parent_id": 2.061,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-02-20 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Define data and interface relations",
+                "task_id": 89
+            },
+            {
+                "end_date": "2020-02-22 00:00:00.000000",
+                "parent_id": 2.062,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-02-18 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Define data and system relations",
+                "task_id": 90
+            },
+            {
+                "end_date": "2020-02-27 00:00:00.000000",
+                "parent_id": 2.07,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-02-08 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Develop preliminary test and conversion procedures",
+                "task_id": 91
+            },
+            {
+                "end_date": "2020-02-29 00:00:00.000000",
+                "parent_id": 2.0709999999999997,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-02-05 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify test requirements",
+                "task_id": 92
+            },
+            {
+                "end_date": "2020-02-29 00:00:00.000000",
+                "parent_id": 2.072,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-26 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Create test checklist",
+                "task_id": 93
+            },
+            {
+                "end_date": "2020-02-24 00:00:00.000000",
+                "parent_id": 2.073,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-02-19 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify conversion requirements",
+                "task_id": 94
+            },
+            {
+                "end_date": "2020-02-25 00:00:00.000000",
+                "parent_id": 2.074,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-24 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Create conversion checklist",
+                "task_id": 95
+            },
+            {
+                "end_date": "2020-02-28 00:00:00.000000",
+                "parent_id": 2.08,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-27 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Validate logical design",
+                "task_id": 96
+            },
+            {
+                "end_date": "2020-02-28 00:00:00.000000",
+                "parent_id": 2.081,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-27 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Validate data relations",
+                "task_id": 97
+            },
+            {
+                "end_date": "2020-02-28 00:00:00.000000",
+                "parent_id": 2.082,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-02-27 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Validate process relations",
+                "task_id": 98
+            },
+            {
+                "end_date": "2020-02-28 00:00:00.000000",
+                "parent_id": 2.083,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-02-27 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Validate process logic",
+                "task_id": 99
+            },
+            {
+                "end_date": "2020-02-29 00:00:00.000000",
+                "parent_id": 2.08,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-02-20 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Trace requirements to design",
+                "task_id": 100
+            },
+            {
+                "end_date": "2020-02-29 00:00:00.000000",
+                "parent_id": 2.09,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-02-28 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Validate against system architecture",
+                "task_id": 101
+            },
+            {
+                "end_date": "2020-02-27 00:00:00.000000",
+                "parent_id": 2.0909999999999997,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-26 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Compare logical design with systems architecture",
+                "task_id": 102
+            },
+            {
+                "end_date": "2020-02-27 00:00:00.000000",
+                "parent_id": 2.092,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-02-10 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Identify possible inconsistencies",
+                "task_id": 103
+            },
+            {
+                "end_date": "2020-02-28 00:00:00.000000",
+                "parent_id": 2.093,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-10 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Identify conflicting and concurrent development",
+                "task_id": 104
+            },
+            {
+                "end_date": "2020-02-27 00:00:00.000000",
+                "parent_id": 2.094,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-02-25 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Identify recommended changes to systems architecture",
+                "task_id": 105
+            },
+            {
+                "end_date": "2020-02-28 00:00:00.000000",
+                "parent_id": 2.095,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-02-27 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Identify recommended changes to strategic implementation plan",
+                "task_id": 106
+            },
+            {
+                "end_date": "2020-02-29 00:00:00.000000",
+                "parent_id": 2.1,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-25 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Management review / Phase 3 funding",
+                "task_id": 107
+            },
+            {
+                "end_date": "2020-02-21 00:00:00.000000",
+                "parent_id": 2.101,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-02-20 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Plan next phase",
+                "task_id": 108
+            },
+            {
+                "end_date": "2020-02-29 00:00:00.000000",
+                "parent_id": 2.102,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-02-28 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Reevaluate development costs",
+                "task_id": 109
+            },
+            {
+                "end_date": "2020-02-29 00:00:00.000000",
+                "parent_id": 2.103,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-28 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Reevaluate justification",
+                "task_id": 110
+            },
+            {
+                "end_date": "2020-02-29 00:00:00.000000",
+                "parent_id": 2.104,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-02-28 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Obtain user requirements consensus",
+                "task_id": 111
+            },
+            {
+                "end_date": "2020-02-29 00:00:00.000000",
+                "parent_id": 2.105,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-02-28 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Obtain technical consensus",
+                "task_id": 112
+            },
+            {
+                "end_date": "2020-03-31 00:00:00.000000",
+                "parent_id": 3,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-01 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Physical Design (Phase 3)",
+                "task_id": 113
+            },
+            {
+                "end_date": "2020-03-14 00:00:00.000000",
+                "parent_id": 3.01,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-01 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Design or specify physical database",
+                "task_id": 114
+            },
+            {
+                "end_date": "2020-03-15 00:00:00.000000",
+                "parent_id": 3.011,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-10 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Review logical database design",
+                "task_id": 115
+            },
+            {
+                "end_date": "2020-03-03 00:00:00.000000",
+                "parent_id": 3.012,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-01 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Determine access methods to be used",
+                "task_id": 116
+            },
+            {
+                "end_date": "2020-03-16 00:00:00.000000",
+                "parent_id": 3.013,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-12 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Normalize database",
+                "task_id": 117
+            },
+            {
+                "end_date": "2020-03-05 00:00:00.000000",
+                "parent_id": 3.014,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-03-01 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Design database architecture",
+                "task_id": 118
+            },
+            {
+                "end_date": "2020-03-16 00:00:00.000000",
+                "parent_id": 3.015,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-03-08 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify reusable database structures",
+                "task_id": 119
+            },
+            {
+                "end_date": "2020-03-13 00:00:00.000000",
+                "parent_id": 3.016,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-10 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Develop detailed database layout",
+                "task_id": 120
+            },
+            {
+                "end_date": "2020-03-14 00:00:00.000000",
+                "parent_id": 3.017,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-04 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Develop database file, record, and schema descriptions",
+                "task_id": 121
+            },
+            {
+                "end_date": "2020-03-13 00:00:00.000000",
+                "parent_id": 3.0180000000000002,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-03-08 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Develop module calling sequences",
+                "task_id": 122
+            },
+            {
+                "end_date": "2020-03-13 00:00:00.000000",
+                "parent_id": 3.0189999999999997,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-12 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Update data dictionary entries",
+                "task_id": 123
+            },
+            {
+                "end_date": "2020-03-15 00:00:00.000000",
+                "parent_id": 3.011,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-14 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Validate physical database design",
+                "task_id": 124
+            },
+            {
+                "end_date": "2020-03-08 00:00:00.000000",
+                "parent_id": 3.02,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-03-02 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Design processing structure",
+                "task_id": 125
+            },
+            {
+                "end_date": "2020-03-12 00:00:00.000000",
+                "parent_id": 3.0210000000000004,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-03-10 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Compose process structures from data decomposition",
+                "task_id": 126
+            },
+            {
+                "end_date": "2020-03-23 00:00:00.000000",
+                "parent_id": 3.022,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-19 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Identify physical subsystems",
+                "task_id": 127
+            },
+            {
+                "end_date": "2020-03-30 00:00:00.000000",
+                "parent_id": 3.023,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-27 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify physical programs",
+                "task_id": 128
+            },
+            {
+                "end_date": "2020-03-05 00:00:00.000000",
+                "parent_id": 3.0239999999999996,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-01 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Identify reusable programs",
+                "task_id": 129
+            },
+            {
+                "end_date": "2020-03-18 00:00:00.000000",
+                "parent_id": 3.025,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-14 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Eliminate process redundancies",
+                "task_id": 130
+            },
+            {
+                "end_date": "2020-03-30 00:00:00.000000",
+                "parent_id": 3.0260000000000002,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-29 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Develop teleprocessing network specifications",
+                "task_id": 131
+            },
+            {
+                "end_date": "2020-03-21 00:00:00.000000",
+                "parent_id": 3.03,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-16 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Design processing logic",
+                "task_id": 132
+            },
+            {
+                "end_date": "2020-03-10 00:00:00.000000",
+                "parent_id": 3.031,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-07 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Design calling sequences",
+                "task_id": 133
+            },
+            {
+                "end_date": "2020-03-18 00:00:00.000000",
+                "parent_id": 3.032,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-03-14 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Develop calculation specifications",
+                "task_id": 134
+            },
+            {
+                "end_date": "2020-03-30 00:00:00.000000",
+                "parent_id": 3.033,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-29 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Design interface logic",
+                "task_id": 135
+            },
+            {
+                "end_date": "2020-03-19 00:00:00.000000",
+                "parent_id": 3.034,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-10 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Design security logic",
+                "task_id": 136
+            },
+            {
+                "end_date": "2020-03-26 00:00:00.000000",
+                "parent_id": 3.035,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-03-24 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Design error recovery logic",
+                "task_id": 137
+            },
+            {
+                "end_date": "2020-03-15 00:00:00.000000",
+                "parent_id": 3.04,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-03-06 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Define procedures",
+                "task_id": 138
+            },
+            {
+                "end_date": "2020-03-09 00:00:00.000000",
+                "parent_id": 3.0410000000000004,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-04 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Review logical system design user interfaces",
+                "task_id": 139
+            },
+            {
+                "end_date": "2020-03-09 00:00:00.000000",
+                "parent_id": 3.042,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-07 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Develop interactive data-entry procedures",
+                "task_id": 140
+            },
+            {
+                "end_date": "2020-03-23 00:00:00.000000",
+                "parent_id": 3.043,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-19 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Develop screen specifications",
+                "task_id": 141
+            },
+            {
+                "end_date": "2020-03-22 00:00:00.000000",
+                "parent_id": 3.0439999999999996,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-20 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Design input forms",
+                "task_id": 142
+            },
+            {
+                "end_date": "2020-03-06 00:00:00.000000",
+                "parent_id": 3.045,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-03-04 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Develop physical report specifications",
+                "task_id": 143
+            },
+            {
+                "end_date": "2020-03-21 00:00:00.000000",
+                "parent_id": 3.0460000000000003,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-18 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Develop user operating procedures",
+                "task_id": 144
+            },
+            {
+                "end_date": "2020-03-05 00:00:00.000000",
+                "parent_id": 3.0469999999999997,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-03-03 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Develop data processing operations run procedures",
+                "task_id": 145
+            },
+            {
+                "end_date": "2020-03-17 00:00:00.000000",
+                "parent_id": 3.05,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-03-16 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Refine test/conversion procedures",
+                "task_id": 146
+            },
+            {
+                "end_date": "2020-03-30 00:00:00.000000",
+                "parent_id": 3.051,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-26 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Review test/conversion plans",
+                "task_id": 147
+            },
+            {
+                "end_date": "2020-03-26 00:00:00.000000",
+                "parent_id": 3.052,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-25 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Update test/conversion plans",
+                "task_id": 148
+            },
+            {
+                "end_date": "2020-03-24 00:00:00.000000",
+                "parent_id": 3.06,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-19 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Validate physical design",
+                "task_id": 149
+            },
+            {
+                "end_date": "2020-03-23 00:00:00.000000",
+                "parent_id": 3.0610000000000004,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-21 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Validate data relations",
+                "task_id": 150
+            },
+            {
+                "end_date": "2020-03-31 00:00:00.000000",
+                "parent_id": 3.062,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-28 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Validate process relations",
+                "task_id": 151
+            },
+            {
+                "end_date": "2020-03-12 00:00:00.000000",
+                "parent_id": 3.063,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-06 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Validate process logic",
+                "task_id": 152
+            },
+            {
+                "end_date": "2020-03-25 00:00:00.000000",
+                "parent_id": 3.0639999999999996,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-03-01 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Validate procedures",
+                "task_id": 153
+            },
+            {
+                "end_date": "2020-03-25 00:00:00.000000",
+                "parent_id": 3.065,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-22 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Validate teleprocessing network specifications",
+                "task_id": 154
+            },
+            {
+                "end_date": "2020-03-19 00:00:00.000000",
+                "parent_id": 3.0660000000000003,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-03-05 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Validate system timing and sizing requirements",
+                "task_id": 155
+            },
+            {
+                "end_date": "2020-03-19 00:00:00.000000",
+                "parent_id": 3.07,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-18 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Validate against systems architecture",
+                "task_id": 156
+            },
+            {
+                "end_date": "2020-03-31 00:00:00.000000",
+                "parent_id": 3.071,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-03-30 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Compare physical design with systems architecture",
+                "task_id": 157
+            },
+            {
+                "end_date": "2020-03-20 00:00:00.000000",
+                "parent_id": 3.072,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-18 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Identify possible inconsistencies",
+                "task_id": 158
+            },
+            {
+                "end_date": "2020-03-13 00:00:00.000000",
+                "parent_id": 3.073,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-10 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify conflicting / concurrent development",
+                "task_id": 159
+            },
+            {
+                "end_date": "2020-03-16 00:00:00.000000",
+                "parent_id": 3.074,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-03-14 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Identify recommended changes to systems architecture",
+                "task_id": 160
+            },
+            {
+                "end_date": "2020-03-28 00:00:00.000000",
+                "parent_id": 3.08,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-26 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Management review / Phase 3 funding",
+                "task_id": 161
+            },
+            {
+                "end_date": "2020-03-28 00:00:00.000000",
+                "parent_id": 3.0810000000000004,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-27 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Plan next phase",
+                "task_id": 162
+            },
+            {
+                "end_date": "2020-03-12 00:00:00.000000",
+                "parent_id": 3.082,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-09 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Reevaluate development costs",
+                "task_id": 163
+            },
+            {
+                "end_date": "2020-03-31 00:00:00.000000",
+                "parent_id": 3.083,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-03-30 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Reevaluate justification",
+                "task_id": 164
+            },
+            {
+                "end_date": "2020-03-28 00:00:00.000000",
+                "parent_id": 3.0839999999999996,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-03-25 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Obtain user requirements consensus",
+                "task_id": 165
+            },
+            {
+                "end_date": "2020-03-19 00:00:00.000000",
+                "parent_id": 3.085,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-03-13 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Obtain technical consensus",
+                "task_id": 166
+            },
+            {
+                "end_date": "2020-04-30 00:00:00.000000",
+                "parent_id": 4,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-04-01 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Programming and Unit Testing (Phase 4)",
+                "task_id": 167
+            },
+            {
+                "end_date": "2020-04-10 00:00:00.000000",
+                "parent_id": 4.01,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-04-01 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Decompose program modules",
+                "task_id": 168
+            },
+            {
+                "end_date": "2020-04-10 00:00:00.000000",
+                "parent_id": 4.011,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-04-01 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Identify program modules",
+                "task_id": 169
+            },
+            {
+                "end_date": "2020-04-16 00:00:00.000000",
+                "parent_id": 4.012,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-04-01 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify program module input and output",
+                "task_id": 170
+            },
+            {
+                "end_date": "2020-04-10 00:00:00.000000",
+                "parent_id": 4.013,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-04-03 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Identify reusable modules",
+                "task_id": 171
+            },
+            {
+                "end_date": "2020-04-10 00:00:00.000000",
+                "parent_id": 4.013999999999999,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-04-04 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Eliminate module redundancies",
+                "task_id": 172
+            },
+            {
+                "end_date": "2020-04-20 00:00:00.000000",
+                "parent_id": 4.02,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-04-11 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Develop program modules",
+                "task_id": 173
+            },
+            {
+                "end_date": "2020-04-20 00:00:00.000000",
+                "parent_id": 4.021,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-04-11 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Develop detailed module logic",
+                "task_id": 174
+            },
+            {
+                "end_date": "2020-04-22 00:00:00.000000",
+                "parent_id": 4.022,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-04-21 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Validate module logic",
+                "task_id": 175
+            },
+            {
+                "end_date": "2020-04-29 00:00:00.000000",
+                "parent_id": 4.023,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-04-20 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Code module",
+                "task_id": 176
+            },
+            {
+                "end_date": "2020-04-29 00:00:00.000000",
+                "parent_id": 4.024,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-04-15 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Develop module test data",
+                "task_id": 177
+            },
+            {
+                "end_date": "2020-04-23 00:00:00.000000",
+                "parent_id": 4.025,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-04-20 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Develop call and called stubs",
+                "task_id": 178
+            },
+            {
+                "end_date": "2020-04-30 00:00:00.000000",
+                "parent_id": 4.026,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-04-20 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Unit test program",
+                "task_id": 179
+            },
+            {
+                "end_date": "2020-04-18 00:00:00.000000",
+                "parent_id": 4.03,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-04-15 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Update test/conversion procedures",
+                "task_id": 180
+            },
+            {
+                "end_date": "2020-04-24 00:00:00.000000",
+                "parent_id": 4.031000000000001,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-04-23 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Review test/conversion plans",
+                "task_id": 181
+            },
+            {
+                "end_date": "2020-04-25 00:00:00.000000",
+                "parent_id": 4.032,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-04-24 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Update test/conversion plans",
+                "task_id": 182
+            },
+            {
+                "end_date": "2020-04-22 00:00:00.000000",
+                "parent_id": 4.04,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-04-21 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Management review / Phase 3 funding",
+                "task_id": 183
+            },
+            {
+                "end_date": "2020-04-22 00:00:00.000000",
+                "parent_id": 4.041,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-04-21 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Plan next phase",
+                "task_id": 184
+            },
+            {
+                "end_date": "2020-04-22 00:00:00.000000",
+                "parent_id": 4.042,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-04-21 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Reevaluate development costs",
+                "task_id": 185
+            },
+            {
+                "end_date": "2020-04-22 00:00:00.000000",
+                "parent_id": 4.043,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-04-21 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Reevaluate justification",
+                "task_id": 186
+            },
+            {
+                "end_date": "2020-04-29 00:00:00.000000",
+                "parent_id": 4.044,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-04-28 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Obtain user requirements consensus",
+                "task_id": 187
+            },
+            {
+                "end_date": "2020-04-29 00:00:00.000000",
+                "parent_id": 4.045,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-04-28 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Obtain technical consensus",
+                "task_id": 188
+            },
+            {
+                "end_date": "2020-05-31 00:00:00.000000",
+                "parent_id": 5,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-05-01 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "System Testing (Phase 5)",
+                "task_id": 189
+            },
+            {
+                "end_date": "2020-05-02 00:00:00.000000",
+                "parent_id": 5.01,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-05-01 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Finalize integrated system test plan",
+                "task_id": 190
+            },
+            {
+                "end_date": "2020-05-02 00:00:00.000000",
+                "parent_id": 5.011,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-05-01 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Review interim test procedures",
+                "task_id": 191
+            },
+            {
+                "end_date": "2020-05-10 00:00:00.000000",
+                "parent_id": 5.012,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-05-03 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Develop integration test procedures",
+                "task_id": 192
+            },
+            {
+                "end_date": "2020-05-11 00:00:00.000000",
+                "parent_id": 5.013,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-05-04 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Develop integration test plan",
+                "task_id": 193
+            },
+            {
+                "end_date": "2020-05-11 00:00:00.000000",
+                "parent_id": 5.013999999999999,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-05-05 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Assign integration test responsibilities",
+                "task_id": 194
+            },
+            {
+                "end_date": "2020-05-12 00:00:00.000000",
+                "parent_id": 5.015,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-05-06 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Develop integration test data",
+                "task_id": 195
+            },
+            {
+                "end_date": "2020-05-10 00:00:00.000000",
+                "parent_id": 5.016,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-05-09 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Train data processing personnel",
+                "task_id": 196
+            },
+            {
+                "end_date": "2020-05-12 00:00:00.000000",
+                "parent_id": 5.02,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-05-08 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Finalize user acceptance/training test plan",
+                "task_id": 197
+            },
+            {
+                "end_date": "2020-05-13 00:00:00.000000",
+                "parent_id": 5.021,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-05-12 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Review interim test procedures",
+                "task_id": 198
+            },
+            {
+                "end_date": "2020-05-12 00:00:00.000000",
+                "parent_id": 5.022,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-05-08 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Develop user acceptance criteria",
+                "task_id": 199
+            },
+            {
+                "end_date": "2020-05-15 00:00:00.000000",
+                "parent_id": 5.023,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-05-01 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Develop final user acceptance test procedures",
+                "task_id": 200
+            },
+            {
+                "end_date": "2020-05-14 00:00:00.000000",
+                "parent_id": 5.024,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-05-06 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Develop user acceptance test plan",
+                "task_id": 201
+            },
+            {
+                "end_date": "2020-05-12 00:00:00.000000",
+                "parent_id": 5.025,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-05-11 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Assign user acceptance test responsibilities",
+                "task_id": 202
+            },
+            {
+                "end_date": "2020-05-18 00:00:00.000000",
+                "parent_id": 5.026,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-05-12 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Develop user acceptance test data",
+                "task_id": 203
+            },
+            {
+                "end_date": "2020-05-19 00:00:00.000000",
+                "parent_id": 5.027,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-05-18 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Train users",
+                "task_id": 204
+            },
+            {
+                "end_date": "2020-05-24 00:00:00.000000",
+                "parent_id": 5.03,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-05-22 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Conduct integration test",
+                "task_id": 205
+            },
+            {
+                "end_date": "2020-05-22 00:00:00.000000",
+                "parent_id": 5.031000000000001,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-05-21 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Link programs and copy to test libraries",
+                "task_id": 206
+            },
+            {
+                "end_date": "2020-05-20 00:00:00.000000",
+                "parent_id": 5.032,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-05-18 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Establish test files",
+                "task_id": 207
+            },
+            {
+                "end_date": "2020-05-23 00:00:00.000000",
+                "parent_id": 5.033,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-05-20 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Execute integration test",
+                "task_id": 208
+            },
+            {
+                "end_date": "2020-05-28 00:00:00.000000",
+                "parent_id": 5.04,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-05-25 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Conduct user acceptance/training test",
+                "task_id": 209
+            },
+            {
+                "end_date": "2020-05-24 00:00:00.000000",
+                "parent_id": 5.041,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-05-16 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Establish user acceptance test files",
+                "task_id": 210
+            },
+            {
+                "end_date": "2020-05-24 00:00:00.000000",
+                "parent_id": 5.042,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-05-22 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Establish test files",
+                "task_id": 211
+            },
+            {
+                "end_date": "2020-05-28 00:00:00.000000",
+                "parent_id": 5.043,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-05-26 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Execute user acceptance test",
+                "task_id": 212
+            },
+            {
+                "end_date": "2020-05-22 00:00:00.000000",
+                "parent_id": 5.05,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-05-14 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Management review / Phase 3 funding",
+                "task_id": 213
+            },
+            {
+                "end_date": "2020-05-26 00:00:00.000000",
+                "parent_id": 5.051,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-05-25 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Plan next phase",
+                "task_id": 214
+            },
+            {
+                "end_date": "2020-05-29 00:00:00.000000",
+                "parent_id": 5.052,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-05-28 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Reevaluate development costs",
+                "task_id": 215
+            },
+            {
+                "end_date": "2020-05-29 00:00:00.000000",
+                "parent_id": 5.053,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-05-28 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Reevaluate justification",
+                "task_id": 216
+            },
+            {
+                "end_date": "2020-05-31 00:00:00.000000",
+                "parent_id": 5.053999999999999,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-05-28 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Obtain user requirements consensus",
+                "task_id": 217
+            },
+            {
+                "end_date": "2020-05-31 00:00:00.000000",
+                "parent_id": 5.055,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-05-29 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Obtain technical consensus",
+                "task_id": 218
+            },
+            {
+                "end_date": "2020-06-30 00:00:00.000000",
+                "parent_id": 6,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-06-01 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Installation (Phase 6)",
+                "task_id": 219
+            },
+            {
+                "end_date": "2020-06-03 00:00:00.000000",
+                "parent_id": 6.01,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-06-01 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Finalize conversion plan",
+                "task_id": 220
+            },
+            {
+                "end_date": "2020-06-05 00:00:00.000000",
+                "parent_id": 6.011,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-06-02 00:00:00.000000",
+                "status": "Not Started",
+                "task_description": "Review interim conversion procedures",
+                "task_id": 221
+            },
+            {
+                "end_date": "2020-06-12 00:00:00.000000",
+                "parent_id": 6.0120000000000005,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-06-03 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Develop conversion procedures",
+                "task_id": 222
+            },
+            {
+                "end_date": "2020-06-08 00:00:00.000000",
+                "parent_id": 6.013,
+                "project_title": "Project Demo",
+                "resource_id": "Jack Stromberg",
+                "start_date": "2020-06-04 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Develop conversion plan",
+                "task_id": 223
+            },
+            {
+                "end_date": "2020-06-08 00:00:00.000000",
+                "parent_id": 6.013999999999999,
+                "project_title": "Project Demo",
+                "resource_id": "Lauren Chavez",
+                "start_date": "2020-06-03 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Assign conversion responsibilities",
+                "task_id": 224
+            },
+            {
+                "end_date": "2020-06-12 00:00:00.000000",
+                "parent_id": 6.02,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-06-10 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Convert files/database",
+                "task_id": 225
+            },
+            {
+                "end_date": "2020-06-14 00:00:00.000000",
+                "parent_id": 6.03,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-06-13 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Install software",
+                "task_id": 226
+            },
+            {
+                "end_date": "2020-06-27 00:00:00.000000",
+                "parent_id": 6.04,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-06-13 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Run systems in parallel",
+                "task_id": 227
+            },
+            {
+                "end_date": "2020-06-28 00:00:00.000000",
+                "parent_id": 6.05,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-06-27 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Turn off old system",
+                "task_id": 228
+            },
+            {
+                "end_date": "2020-06-29 00:00:00.000000",
+                "parent_id": 6.06,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-06-27 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Management review",
+                "task_id": 229
+            },
+            {
+                "end_date": "2020-06-29 00:00:00.000000",
+                "parent_id": 6.061,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-06-27 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Obtain user requirements consensus",
+                "task_id": 230
+            },
+            {
+                "end_date": "2020-06-29 00:00:00.000000",
+                "parent_id": 6.062,
+                "project_title": "Project Demo",
+                "resource_id": "James DeCola",
+                "start_date": "2020-06-27 00:00:00.000000",
+                "status": "Completed",
+                "task_description": "Obtain technical consensus",
+                "task_id": 231
+            },
+            {
+                "end_date": "2020-06-30 00:00:00.000000",
+                "parent_id": 6.063,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-06-27 00:00:00.000000",
+                "status": "Deferred",
+                "task_description": "Document recommended changes to architecture",
+                "task_id": 232
+            },
+            {
+                "end_date": "2020-06-30 00:00:00.000000",
+                "parent_id": 6.064,
+                "project_title": "Project Demo",
+                "resource_id": "Bridgette Sanders",
+                "start_date": "2020-06-27 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Document recommended enhancements to system",
+                "task_id": 233
+            },
+            {
+                "end_date": "2020-07-02 00:00:00.000000",
+                "parent_id": 1.7,
+                "project_title": "Project Demo",
+                "resource_id": "Martie Feldtmann",
+                "start_date": "2020-07-01 00:00:00.000000",
+                "status": "In Progress",
+                "task_description": "Final Signoff",
+                "task_id": 234
+            }
+        ]
+
+        var table = new Tabulator("#example-table", {
+            data:data,           //load row data from array
+            layout:"fitColumns",      //fit columns to width of table
+            responsiveLayout:"hide",  //hide columns that dont fit on the table
+            tooltips:true,            //show tool tips on cells
+            addRowPos:"top",          //when adding a new row, add it to the top of the table
+            history:true,             //allow undo and redo actions on the table
+            pagination:"local",       //paginate the data
+            paginationSize:7,         //allow 7 rows per page of data
+            movableColumns:true,      //allow column order to be changed
+            resizableRows:true,       //allow row order to be changed
+            initialSort:[             //set the initial sort order of the data
+                {column:"name", dir:"asc"},
+            ],
+            columns:[
+            {title:"Project Title", field:"project_title", width:200},
+            {title:"Task Description", field:"task_description"},
+            {title:"Status", field:"status"},
+            {title:"Start Date", field:"start_date", align:"center", sorter:"date"},
+            {title:"End Date", field:"end_date", align:"center", sorter:"date"},
+            {title:"Resource", field:"resource_id", align:"center"},
+            ],
+        });
+            
+        </script>
+
+
+        
+    
+
     <div class="jumbotron">
     <div class="content-section">
         <div class='row'> 

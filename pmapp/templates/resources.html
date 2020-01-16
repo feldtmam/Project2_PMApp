@@ -93,5 +93,86 @@
     </div> 
     </div>
     </div>
+    <div id="example-table">
+        <script>
+            var tabledata = [
+        {
+            "allocation_percentage": 70,
+            "department": "Development",
+            "fullname": "Martie Feldtmann",
+            "marker_image": "/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/Project2_PMApp/static/marker_pics/marker1.jpg",
+            "resource_id": 1
+        },
+        {
+            "allocation_percentage": 60,
+            "department": "Operations Management",
+            "fullname": "Bridgette Sanders",
+            "marker_image": "/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/Project2_PMApp/static/marker_pics/marker2.jpg",
+            "resource_id": 2
+        },
+        {
+            "allocation_percentage": 50,
+            "department": "Development",
+            "fullname": "James DeCola",
+            "marker_image": "/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/Project2_PMApp/static/marker_pics/marker3.jpg",
+            "resource_id": 3
+        },
+        {
+            "allocation_percentage": 50,
+            "department": "Development",
+            "fullname": "Jack Stromberg",
+            "marker_image": "/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/Project2_PMApp/static/marker_pics/marker4.jpg",
+            "resource_id": 4
+        },
+        {
+            "allocation_percentage": 50,
+            "department": "Development",
+            "fullname": "Lauren Chavez",
+            "marker_image": "/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/Project2_PMApp/static/marker_pics/marker5.jpg",
+            "resource_id": 5
+        },
+        {
+            "allocation_percentage": 100,
+            "department": "Testing",
+            "fullname": "Test Resource",
+            "marker_image": "default_marker.jpg",
+            "resource_id": 6
+        },
+        {
+            "allocation_percentage": 80,
+            "department": "PMO",
+            "fullname": "Test Resource 2",
+            "marker_image": "/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/Project2_PMApp/pmapp/static/marker_pics/default_marker.jpg",
+            "resource_id": 7
+        }
+    ]
+    
+            var table = new Tabulator("#example-table", {
+                data:tabledata,           //load row data from array
+                layout:"fitColumns",      //fit columns to width of table
+                responsiveLayout:"hide",  //hide columns that dont fit on the table
+                tooltips:true,            //show tool tips on cells
+                addRowPos:"top",          //when adding a new row, add it to the top of the table
+                history:true,             //allow undo and redo actions on the table
+                pagination:"local",       //paginate the data
+                paginationSize:7,         //allow 7 rows per page of data
+                movableColumns:true,      //allow column order to be changed
+                resizableRows:true,       //allow row order to be changed
+                initialSort:[             //set the initial sort order of the data
+                    {column:"name", dir:"asc"},
+                ],
+                columns:[                 //define the table columns
+                    {title:"Full Name", field:"fullname", editor:"input"},
+                    {title:"Allocation Percentage", field:"allocation_percentage", align:"left", formatter:"progress", editor:true},
+                    {title:"Department", field:"department", width:95, editor:"select", editorParams:{values:["male", "female"]}},
+                    {title:"Resource_ID", field:"resource_id", width:130, editor:"input"},
+                    {title:"Marker Image", field:"marker_image", width:130, sorter:"date", align:"center"},
+                    
+                ],
+            });
+        </script> 
+        </div>
+    
+    
   
 {% endblock content %}
