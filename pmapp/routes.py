@@ -172,3 +172,12 @@ def upload():
 @app.route("/bonus")
 def bonus():
     return render_template('bonus.html', title='Bonus')
+
+@app.route("/gantt")
+def gantt():
+     gantt_df = all_tasks_df
+     #gantt_df = gantt_df.astype({'start_date':'datetime64', 'end_date':'datetime64'  })
+     #gantt_df['start_date'] = gantt_df['start_date'].dt.strftime('%m-%d-%Y %T')
+     #gantt_df['end_date'] = gantt_df['end_date'].dt.strftime('%m-%d-%Y %T')
+     gantt_out = gantt_df.to_dict(orient='records')
+     return render_template('gantt.html', title='Gantt Chart', gantt_all_tasks=gantt_out)
