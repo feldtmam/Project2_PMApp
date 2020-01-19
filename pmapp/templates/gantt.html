@@ -5,23 +5,31 @@
     <h1>Project Gantt Chart</h1>
     <div class = "gantt_house"></div>
 
-<script src='../static/js/gantt.js'></script>
 <script>
     var gant_tasks = {{ gantt_all_tasks|tojson }};
     console.log(gant_tasks)
-    // var arrayLength = gant_tasks.length;
-    // for (var i = 0; i < arrayLength; i++) {
-    //     console.log(gant_tasks[i]);
-    // }
 
-//task_list=[] - I've been swapping bewteen inputs depending on the situation
 task_list=gant_tasks
 var task_list_len = task_list.length;
 
-var gantt_start_date = new Date("2020-01-01 00:00:00.000000");
-var gantt_end_date = new Date("2020-02-15 00:00:00.000000");
-var gantt_total_days = ((gantt_end_date.getTime() - gantt_start_date.getTime()) / (1000 * 3600 * 24)) + 1;
-var gantt_total_days = Math.ceil( gantt_total_days ); 
+var gant_days = 45
+
+function timetwister(date){
+      out_year = date.getFullYear();
+      out_day= date.getDate();
+      out_month= (date.getMonth() + 1);
+      return_date = `${out_year}-${out_month}-${out_day}`;
+	  return_date = Date.parse(`${return_date} 00:00:00 EST`);
+	  return(return_date)}
+
+var currentTime = new Date();
+var currentTime = new Date(timetwister(currentTime));
+var newtime = new Date(currentTime.getTime() + gant_days*(1000 * 3600 * 24));
+var gantt_start_date = currentTime;
+var gantt_end_date = newtime;
+var gantt_total_days = gant_days;
+
+
 console.log(gantt_total_days);
 
 //Get a list of people
@@ -61,31 +69,24 @@ for (i=0;i<resource_names.length; i++){
                          this_start = gantt_start_date;
                      };
                      if (this_end > gantt_end_date){
-                         this_end = gantt_end_date;
+                         this_end = gantt_end_date;}
+					 this_start = (this_start-gantt_start_date); // we are adjusting dates to graphable numbers.
+					 this_end = (this_end-gantt_start_date);
+					 this_start = (this_start/ (1000 * 3600 * 24));
+					 this_end = (this_end/ (1000 * 3600 * 24));
+					 this_rect = [Math.ceil(this_start),Math.ceil(this_end),this_resource,this_desc]; // slopping rectangle data into a variable
+					 console.log(this_rect);
+					 rectangles.push(this_rect);
                      };
-                     this_start = (this_start-gantt_start_date); // we are adjusting dates to graphable numbers.
-                     this_end = (this_end-gantt_start_date);
-                     this_start = (this_start/ (1000 * 3600 * 24));
-                     this_end = (this_end/ (1000 * 3600 * 24));
-                     this_rect = [this_start,this_end,this_resource,this_desc]; // slopping rectangle data into a variable
+                     
                  }
              }
-             //console.log(this_rect)
-             rectangles.push(this_rect);
+             
          }
         }
-    }
-// Troubleshooting, no longer needed.
-// console.log(rectangles)
-// for (i=0;i<rectangles.length;i++){
-//     console.log(rectangles[i][0]);
-//     console.log(rectangles[i][1]);
-//     console.log(rectangles[i][2]);
-//     console.log(rectangles[i][3])
-// }
 
 //setup chart stuff
-outside_x= 1200;
+outside_x= 1400;
 margin_x = 30;
 margin_y = 30;
 lables_side = 100;
@@ -96,9 +97,17 @@ day_height = 50;
 day_gap = 5;
 outside_y = (resource_names.length*(day_height+day_gap)+day_gap+ lables_day+margin_y+margin_y);
 first_row = (margin_y+title_y+lables_day)
-//labels_text = d3.axisLeft(day_height+day_gap).ticks(resource_names.length);
 
 var svg = d3.select(".gantt_house").append("svg").attr("height",outside_y).attr("width",outside_x);
+
+  for( i=0; i<gantt_total_days+1; i++) {
+  line = svg.append('line')
+			.attr('x1',margin_x+lables_side+(i*day_width))
+			.attr('y1',first_row - (10*(i%4)))
+			.attr('x2',margin_x+lables_side+(i*day_width))
+			.attr('y2',(outside_y-margin_y)+day_gap+day_gap )
+			.attr("stroke", "#D3D3D3")
+  }
 
 var g = svg.selectAll(".rect")
   .data(rectangles)
@@ -112,6 +121,14 @@ var g = svg.selectAll(".rect")
   .attr("x", d=> (margin_x+lables_side) + (d[0]*day_width) )
   .attr("y", d=> first_row + d[2]*(day_height+day_gap))
   .attr("fill",  "#ff6700")
+  
+  bob = svg.append("rect")
+  .attr("width", (outside_x - (margin_x*2) - lables_side) )
+  .attr("height", (resource_names.length * (day_height+day_gap)-day_gap))
+  .attr("x", margin_x+lables_side)
+  .attr("y", first_row)
+  .attr("stroke", "#D3D3D3")
+  .attr("fill-opacity", 0);
 
 
   for( i=0; i<resource_names.length; i++) {
@@ -129,16 +146,16 @@ var g = svg.selectAll(".rect")
       out_month= (outdate.getMonth() + 1);
       return_date = `${out_year}-${out_month}-${out_day}`
       return(return_date)}
-
-  for( i=0; i<gantt_total_days; i++) {
+ 
+  for( i=0; i<gantt_total_days+1; i++) {
   text = svg.append('text').text( incDate(gantt_start_date, i) )
-                .attr('x', margin_x+lables_side+(i*day_width))
-                .attr('y', first_row - (10*(i%4)))
-                .attr('fill', 'black')
-                .attr("font-size", "10px")
+               .attr('x', margin_x+lables_side+(i*day_width))
+               .attr('y', first_row - (10*(i%4)))
+               .attr('fill', 'black')
+               .attr("font-size", "10px")
+			   .attr('angle', 45)
   }
-
-    text = svg.append('text').text(`All Projects`)
+    title = svg.append('text').text(`All Projects - ${gantt_total_days} Days`)
                 .attr('x', margin_x)
                 .attr('y', title_y)
                 .attr("font-size", "20px")
