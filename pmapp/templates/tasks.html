@@ -2387,66 +2387,28 @@
         var table = new Tabulator("#example-table", {
             data:data,           //load row data from array
             layout:"fitColumns",      //fit columns to width of table
-            responsiveLayout:"hide",  //hide columns that dont fit on the table
             tooltips:true,            //show tool tips on cells
-            addRowPos:"top",          //when adding a new row, add it to the top of the table
-            history:true,             //allow undo and redo actions on the table
             pagination:"local",       //paginate the data
-            paginationSize:7,         //allow 7 rows per page of data
+            paginationSize:15,         //allow 7 rows per page of data
             movableColumns:true,      //allow column order to be changed
             resizableRows:true,       //allow row order to be changed
             initialSort:[             //set the initial sort order of the data
                 {column:"name", dir:"asc"},
             ],
             columns:[
-            {title:"Project Title", field:"project_title", width:200},
-            {title:"Task Description", field:"task_description"},
-            {title:"Status", field:"status"},
-            {title:"Start Date", field:"start_date", align:"center", sorter:"date"},
-            {title:"End Date", field:"end_date", align:"center", sorter:"date"},
-            {title:"Resource", field:"resource_id", align:"center"},
+            {title:"Project Title", field:"project_title", width:150},
+            {title:"Task Description", field:"task_description", width:300},
+            {title:"Status", field:"status", width:100},
+            {title:"Start Date", field:"start_date", align:"center", sorter:"date", width:150},
+            {title:"End Date", field:"end_date", align:"center", sorter:"date", width:150},
+            {title:"Resource", field:"resource_id", align:"center", width:150},
             ],
         });
-            
+        $("#download-xlsx").click(function(){
+            table.download("xlsx", "data.xlsx", {sheetName:"My Data"});
+        });
         </script>
 
 
         
-    
-
-    <div class="jumbotron">
-    <div class="content-section">
-        <div class='row'> 
-        <div class="col-xl">
-               
-        <table>
-        <thead>
-        <tr>
-            <th scope="col">Project Title</th>
-            <th scope="col">Task Description</th>
-            <th scope="col">Status</th>
-            <th scope="col">Start Date</th>
-            <th scope="col">End Date</th>
-            <th scope="col">Resource</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for tasks in all_tasks %}
-            
-                <tr>
-                    <td>{{ tasks.project_title }}</td>
-                    <td>{{ tasks.task_description }}</td>
-                    <td>{{ tasks.status }}</td>
-                    <td>{{ tasks.start_date }}</td>
-                    <td>{{ tasks.end_date }}</td>
-                    <td>{{ tasks.resource_id }}</td>
-                </tr>
-           <!-- <p>{{ tasks.project_title }} {{ tasks.task_id }} {{ tasks.status }} {{ tasks.start_date }} {{ tasks.end_date }} {{ tasks.resource_id }}</p> -->
-        {% endfor %}
-         </tbody>
-         </table>
-    </div>
-    </div> 
-    </div>
-    </div>
 {% endblock content %}

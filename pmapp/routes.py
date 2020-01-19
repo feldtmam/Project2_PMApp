@@ -87,6 +87,7 @@ def resources():
         resource = Resource(fullname=form.fullname.data, department=form.department.data, allocation_percentage=form.allocation_percentage.data, marker_image=marker_image_file)
         db.session.add(resource)
         db.session.commit()
+        
     return render_template('resources.html', title='Resources', form=form, resource_names=all_resources) #send the form and the list of resources to the template
 
 @app.route("/resources/<int:resource_id>", methods=['GET', 'POST']) #pass the resource id variable into the  route to display the specific record

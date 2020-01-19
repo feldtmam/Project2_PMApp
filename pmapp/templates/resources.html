@@ -54,6 +54,7 @@
                         {% endfor %}
                     {% endif %}
                 </div>    
+            
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
@@ -63,34 +64,7 @@
     <div>
     </div>
     </div>
-    <div class="jumbotron">
-    <div class="content-section">
-        <div class='row'> 
-        <div class="col-xl">
-               
-        <table>
-        <thead>
-        <tr>
-            <th scope="col">Resource Name</th>
-            <th scope="col">Department</th>
-            <th scope="col">Allocation %</th>
-            <th scope="col">Marker Image</th>
-        </tr>
-        </thead>
-         <tbody>
-       
-        {% for resources in resource_names %}
-            <tr>
-                    <td>{{ resources.fullname}}</td>
-                    <td>{{ resources.department }}</td>
-                    <td>{{ resources.allocation_percentage }}</td>
-                    <td>{{ resources.marker_image }}</td>
-            </tr>
-            <!--<p>{{ resources.fullname }} {{ resources.department }} {{ resources.allocation_percentage }} {{ resources.marker_image }}</p>-->
-        {% endfor %}
-        </tbody>
-        </table>
-    </div> 
+ 
     </div>
     </div>
     <div id="example-table">
@@ -162,11 +136,11 @@
                     {column:"name", dir:"asc"},
                 ],
                 columns:[                 //define the table columns
-                    {title:"Full Name", field:"fullname", editor:"input"},
-                    {title:"Allocation Percentage", field:"allocation_percentage", align:"left", formatter:"progress", editor:true},
-                    {title:"Department", field:"department", width:95, editor:"select", editorParams:{values:["male", "female"]}},
-                    {title:"Resource_ID", field:"resource_id", width:130, editor:"input"},
-                    {title:"Marker Image", field:"marker_image", width:130, sorter:"date", align:"center"},
+                    {title:"Full Name", field:"fullname", editor:"input", width:150},
+                    {title:"Allocation Percentage", field:"allocation_percentage", align:"left", formatter:"progress", editor:true, width:300},
+                    {title:"Department", field:"department", width:200, editor:"select", editorParams:{values:["male", "female"]}},
+                    {title:"Resource_ID", field:"resource_id", width:120, editor:"input"},
+                    {title:"Marker Image", field:"marker_image", width:335, sorter:"date", align:"center"},
                     
                 ],
             });
