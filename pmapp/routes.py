@@ -87,7 +87,6 @@ def resources():
         resource = Resource(fullname=form.fullname.data, department=form.department.data, allocation_percentage=form.allocation_percentage.data, marker_image=marker_image_file)
         db.session.add(resource)
         db.session.commit()
-        
     return render_template('resources.html', title='Resources', form=form, resource_names=all_resources) #send the form and the list of resources to the template
 
 @app.route("/resources/<int:resource_id>", methods=['GET', 'POST']) #pass the resource id variable into the  route to display the specific record
@@ -176,9 +175,9 @@ def bonus():
 
 @app.route("/gantt")
 def gantt():
-     gantt_df = all_tasks_df
-     #gantt_df = gantt_df.astype({'start_date':'datetime64', 'end_date':'datetime64'  })
-     #gantt_df['start_date'] = gantt_df['start_date'].dt.strftime('%m-%d-%Y %T')
-     #gantt_df['end_date'] = gantt_df['end_date'].dt.strftime('%m-%d-%Y %T')
-     gantt_out = gantt_df.to_dict(orient='records')
-     return render_template('gantt.html', title='Gantt Chart', gantt_all_tasks=gantt_out)
+	# Rebuilds gantt_df every time page is visited, to produce fresh data.
+	gantt_df = pd.DataFrame()
+	for task in all_tasks:
+		gantt_df = gantt_df.append({'project_title': task.project_title, 'resource' : task.resource_id, 'task_description' : task.task_description, 'start_date': task.start_date, 'end_date': task.end_date}, ignore_index=True)
+	gantt_out = gantt_df.to_dict(orient='records')
+	return render_template('gantt.html', title='Gantt Chart', gantt_all_tasks=gantt_out)
